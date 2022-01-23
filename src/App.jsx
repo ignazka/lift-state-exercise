@@ -1,27 +1,25 @@
 import "./App.css";
-import Child from "./components/Child";
-import React from 'react'
-import Calculator from './components/Calculator'
+import React from "react";
+import Input from "./components/Input";
+import Output from "./components/Output";
+// an input output lift state exercise
+// you have two components: Input & Output
+// you shall write a text in Input and it will added to a list and rendered in output
 function App() {
-  
-  const [inputText, setInputText] = React.useState('')
-  const [result, setResult] = React.useState(0)
-  const writeInputValue = (childText) =>{
+  const initialText = {
+    first: "bla",
+  };
 
-    setInputText(childText)
-
+  // const [textFromInput, setTextFromInput] = React.useState("test");
+  const getTextFromInput = (textFromInput) => {
+    console.log({listOfTexts});
+    setListOfTexts([textFromInput, ...listOfTexts])
   }
-
-  const calculate = (result) =>{
-    setResult(result)
-  }
-  
+  const [listOfTexts, setListOfTexts] = React.useState([]);
   return (
     <div className="App">
-      <Child onClickText={writeInputValue} textFromParent="This is a message from your Daddy" />
-      <input type="text" value={inputText}></input>
-      <Calculator>{calculate}</Calculator>
-      <p>Ergebnis: {result}</p>
+      <Input getTextFromInputMethod={getTextFromInput} />
+      <Output textForOutput={listOfTexts} />
     </div>
   );
 }

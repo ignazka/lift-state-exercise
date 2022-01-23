@@ -7,3 +7,18 @@
   color: tomato;
 }
 
+.Output {
+  font-size: 10em;
+  background-color: tomato;
+  
+}
+.Output li {
+  list-style-type: repeating-emoji;
+}
+@counter-style repeating-emoji {
+  system: cyclic;
+  symbols: "\1F431" "\1F436" "\1F984"; 
+  suffix: " ";
+}
+
+
